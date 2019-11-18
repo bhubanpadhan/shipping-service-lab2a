@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: shipping-service
+  name: shipping-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: shipping-service
+    spec:
+      containers:
+      - image: us.icr.io/lab-cnb1/shipping-service-js-33-pipeline:latest
+        name: shipping-service
+        ports:
+        - name: app-port
+          containerPort: 3001
